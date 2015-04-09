@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Michael Sievers"]
   spec.summary       = %q{A more mighty tap}
   spec.homepage      = "https://github.com/msievers/mighty_tap"
+  spec.description   = "A tap for ruby with some extra sugar"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
