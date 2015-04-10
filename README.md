@@ -1,4 +1,6 @@
-# MightyTap
+# mighty_tap
+
+Ruby's `tap` is a awesome. mighty_tap tries to make it even more awesome by adding some missing features, while maintining full compatibility to the orginal `tap`. In order to make it's usage more pleasant, `mighty_tap` is defined as in instance method on `Object` and aliased to `mtap`.
 
 ## Installation
 
@@ -18,8 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "mighty_tap"
 
+# it can be used just like tap
+[[[1,2,3]]].mtap(&:flatten!) # => [1,2,3]
+
+# dispite the implicite &: block syntax, it can take a method name
+[[[1,2,3]]].mtap(:flatten!) # => [1,2,3]
+
+# additional to this, it also takes arguments
+[[[1,2,3]]].mtap(:flatten!, 1) # => [[1,2,3]]
+```
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
