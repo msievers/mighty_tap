@@ -43,7 +43,7 @@ describe Object do
 
           context "if the last argument responds to :call" do
             it "calls the method with the callable transformed into a block" do
-              expect(some_class.new("foo").mtap(:state=, -> (state) { state.clear << "bar" }).state).to eq("bar")
+              expect(some_class.new("foo").mtap(:state=, ->(state) { state.clear << "bar" }).state).to eq("bar")
             end
           end
         end
@@ -70,7 +70,7 @@ describe Object do
 
           context "the last argument responds to :call" do
             it "calls the method with the callable transformed into a block" do
-              expect(some_class.new("foo").mtap(state_changer, "muff", -> (state) { state.upcase! }).state).to eq("MUFF")
+              expect(some_class.new("foo").mtap(state_changer, "muff", ->(state) { state.upcase! }).state).to eq("MUFF")
             end
           end
         end
