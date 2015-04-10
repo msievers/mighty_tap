@@ -2,18 +2,14 @@ require "mighty_tap/version"
 
 class Object
   def mighty_tap(*args, &block)
-    if args.length == 1
-      self.send(args[0])
-    elsif args.length == 2
-      if args[1].is_a?(Proc)
-        # this assumption might be wrong for some edge cases but
-        # in almost all other cases it should be the right decision
-        self.send(args[0], &args[1])
-      else
-        self.send(args[0], args[1])
-      end
-    elsif args.length > 2
-      self.send(args[0], *args[1..-1])
+    if args.length > 1 && args.last.is_a?(Proc)
+      method_block_proc = args.pop
+    end
+
+    if args[0].is_a?(String) || args[0].is_a?(Symbol)
+      self.send(args[0], *args[1..-1], &method_block_proc)
+    elsif args[0].respond_to?(:call)
+      args[0].call(self, *args[1..-1], &method_block_proc)
     end
 
     if block_given?

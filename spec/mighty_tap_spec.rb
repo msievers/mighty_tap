@@ -14,8 +14,10 @@ describe Object do
       context "if parameters are given" do
         describe "it calls the method on the object with the given parameters" do
           it "returns the object" do
+            # example 1
             expect([[[1,2,3]]].mighty_tap(:flatten!, 1)).to eq([[1,2,3]])
 
+            # example 2
             double_integer = -> (integer) { integer * 2 }
             expect([1,2,3].mighty_tap(:map!, double_integer)).to eq([1,2,3].map(&double_integer))
           end
