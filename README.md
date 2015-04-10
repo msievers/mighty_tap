@@ -35,7 +35,7 @@ require "mighty_tap"
 #
 # if the last argument is a proc, the method is called with the procs block variant
 #
-[1,2,3].mtap(:map!, -> (number) { number * 2 }) => [2,4,6]
+[1,2,3].mtap(:map!, -> (number) { number * 2 }) # => [2,4,6]
 
 #
 # you can also give it a callable (something that responds to #call)
