@@ -10,7 +10,7 @@ Rubys `Object#tap` is a awesome. mighty_tap tries to make it even more awesome b
 * you can give it arguments and blocks for methods to call
 * dispite calling methods on the object itself, you can provide a callable
   * in fact you can provide anything that responds to :call
-* dispite the added features it acts like the original `tap` (can act as drop-in replacement)
+* dispite the added features, it acts like the original `tap` (can act as a drop-in replacement)
 
 ## Usage
 
@@ -35,7 +35,7 @@ require "mighty_tap"
 #
 # if the last argument is a proc, the method is called with the procs block variant
 #
-[1,2,3].mtap(:map!, -> (number) { number * 2 }) => [2,4,6]
+[1,2,3].mtap(:map!, -> (number) { number * 2 }) # => [2,4,6]
 
 #
 # you can also give it a callable (something that responds to #call)
