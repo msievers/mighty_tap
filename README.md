@@ -62,7 +62,7 @@ class ArrayMultiplier
 end
 
 [1,2,3].mtap(ArrayMultiplier.new, 3) # => [3,6,9]
-[1,2,3].mtap(ArrayMultiplier.new, 3, -> (array) { array.delete_if { |int| int < 9 } }) # => [9]
+[1,2,3].mtap(ArrayMultiplier.new, 3, -> (array) { array.delete_if { |i| i < 9 } }) # => [9]
 
 #
 # this can all be combinded with taps original block syntax
