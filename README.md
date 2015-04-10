@@ -29,7 +29,7 @@ require "mighty_tap"
 # dispite the implicite &: block syntax, it can take a method name
 [[[1,2,3]]].mtap(:flatten!) # => [1,2,3]
 
-# additional to this, it also takes arguments
+# it also takes method arguments
 [[[1,2,3]]].mtap(:flatten!, 1) # => [[1,2,3]]
 ```
 ## Development
