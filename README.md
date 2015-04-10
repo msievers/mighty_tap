@@ -2,21 +2,11 @@
 
 Rubys `tap` is a awesome. mighty_tap tries to make it even more awesome by adding some missing features, while maintining full compatibility to the orginal `tap`. In order to make its usage more pleasant, `mighty_tap` is defined as in instance method on `Object` and aliased to `mtap`.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'mighty_tap'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install mighty_tap
+## What are the benefits over `tap` ?
+* you can give it a method name
+* you can give it arguments and blocks for methods to call
+* dispite calling methods on the object itself, you can provide a callable
+* dispite the added features it acts like the original `tap` (can act as drop-in replacement)
 
 ## Usage
 
@@ -64,6 +54,22 @@ end
 end
 # => [4, 16, 36]
 ```
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'mighty_tap'
+```
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install mighty_tap
 
 ## Development
 
