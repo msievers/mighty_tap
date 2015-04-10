@@ -5,7 +5,7 @@
 
 Rubys `tap` is a awesome. mighty_tap tries to make it even more awesome by adding some missing features, while maintining full compatibility to the orginal `tap`. In order to make its usage more pleasant, `mighty_tap` is defined as in instance method on `Object` and aliased to `mtap`.
 
-## What is it even more awesome than `tap` ?
+## Why is it even more awesome than `tap` ?
 * you can give it a method name
 * you can give it arguments and blocks for methods to call
 * dispite calling methods on the object itself, you can provide a callable
