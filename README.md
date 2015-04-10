@@ -10,7 +10,7 @@ Rubys `Object#tap` is a awesome. mighty_tap tries to make it even more awesome b
 * you can give it arguments and blocks for methods to call
 * dispite calling methods on the object itself, you can provide a callable
   * in fact you can provide anything that responds to :call
-* dispite the added features, it acts like the original `tap` (can act as drop-in replacement)
+* dispite the added features, it acts like the original `tap` (can act as a drop-in replacement)
 
 ## Usage
 
