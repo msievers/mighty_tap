@@ -1,8 +1,11 @@
 # mighty_tap
+[![Build Status](https://travis-ci.org/msievers/mighty_tap.svg)](https://travis-ci.org/msievers/mighty_tap)
+[![Test Coverage](https://codeclimate.com/github/msievers/mighty_tap/badges/coverage.svg)](https://codeclimate.com/github/msievers/mighty_tap)
+[![Code Climate](https://codeclimate.com/github/msievers/mighty_tap/badges/gpa.svg)](https://codeclimate.com/github/msievers/mighty_tap)
 
-Rubys `tap` is a awesome. mighty_tap tries to make it even more awesome by adding some missing features, while maintining full compatibility to the orginal `tap`. In order to make its usage more pleasant, `mighty_tap` is defined as in instance method on `Object` and aliased to `mtap`.
+Rubys `Object#tap` is a awesome. mighty_tap tries to make it even more awesome by adding some missing features, while maintining full compatibility to the orginal `tap`. In order to make its usage more pleasant, `mighty_tap` is defined as in instance method on `Object` and aliased to `mtap`.
 
-## What is it even more awesome than `tap` ?
+## Why is it even more awesome than `tap` ?
 * you can give it a method name
 * you can give it arguments and blocks for methods to call
 * dispite calling methods on the object itself, you can provide a callable
