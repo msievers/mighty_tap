@@ -20,17 +20,17 @@ require "mighty_tap"
 #
 # it can be used just like tap
 #
-[[[1,2,3]]].mtap(&:flatten!) # => [1,2,3]
+[1,2,3].mtap(&:shift) # => [2,3]
 
 #
 # despite the implicit &: block syntax, it can take a method name
 #
-[[[1,2,3]]].mtap(:flatten!) # => [1,2,3]
+[1,2,3].mtap(:shift) # => [2,3]
 
 #
 # it also takes method arguments
 #
-[[[1,2,3]]].mtap(:flatten!, 1) # => [[1,2,3]]
+[1,2,3].mtap(:shift, 2) # => [3]
 
 #
 # if the last argument is a proc, the method is called with the procs block variant
