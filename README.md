@@ -3,12 +3,12 @@
 [![Test Coverage](https://codeclimate.com/github/msievers/mighty_tap/badges/coverage.svg)](https://codeclimate.com/github/msievers/mighty_tap)
 [![Code Climate](https://codeclimate.com/github/msievers/mighty_tap/badges/gpa.svg)](https://codeclimate.com/github/msievers/mighty_tap)
 
-Rubys `Object#tap` is a awesome. mighty_tap tries to make it even better by adding some missing features, while maintining full compatibility with the orginal. In order to make its usage more pleasant, `mighty_tap` is defined as in instance method on `Object` and aliased to `Object#mtap`.
+Ruby's `Object#tap` is awesome. mighty_tap tries to make it even better by adding some missing features, while maintaining full compatibility with the original. In order to make its usage more pleasant, `mighty_tap` is defined as an instance method on `Object` and aliased to `Object#mtap`.
 
 ## Why is it even more awesome than `tap` ?
 * you can give it a method name
 * you can give it arguments and blocks for methods to call
-* dispite calling methods on the object itself, you can provide a callable
+* despite calling methods on the object itself, you can provide a callable
   * in fact you can provide anything that responds to :call
 * apart from adding features, it acts like the original `tap` (can act as a drop-in replacement)
 
@@ -23,7 +23,7 @@ require "mighty_tap"
 [[[1,2,3]]].mtap(&:flatten!) # => [1,2,3]
 
 #
-# dispite the implicite &: block syntax, it can take a method name
+# despite the implicit &: block syntax, it can take a method name
 #
 [[[1,2,3]]].mtap(:flatten!) # => [1,2,3]
 
@@ -54,7 +54,7 @@ end
 class ArrayMultiplier
   def call(array, factor, &reducer)
     multiplied_array = array.map! { |element| element * factor }
-    
+
     if block_given?
       yield multiplied_array
     end
@@ -65,7 +65,7 @@ end
 [1,2,3].mtap(ArrayMultiplier.new, 3, -> (array) { array.delete_if { |i| i < 9 } }) # => [9]
 
 #
-# this can all be combinded with taps original block syntax
+# this can all be combined with taps original block syntax
 #
 [1,2,3].mtap(ArrayDoubler.new) do |doubled_array|
   doubled_array.map! { |element| element * element }
