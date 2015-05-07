@@ -12,6 +12,8 @@ rescue LoadError
 end
 
 require "mighty_tap"
+require "rspec"
+require "rspec/its"
 
 RSpec.configure do |config|
   # begin --- rspec 3.1 generator

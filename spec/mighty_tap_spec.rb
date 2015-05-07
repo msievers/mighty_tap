@@ -19,15 +19,92 @@ describe Object do
         def upcase_state!
           @state = @state.upcase
         end
+
+        protected
+
+        def downcase_state!
+          @state = @state.downcase
+        end
+
+        private
+
+        def reset_state!
+          fail NotImplementError
+        end
       end
     end
 
-    it "can be used like Object#tap" do
-      expect(
-        some_class.new.mighty_tap do |_some_object|
-          _some_object.state = "bar"
-        end.state
-      ).to eq("bar")
+    context "when used like Object#tap" do
+      let(:some_object) { some_class.new }
+
+      context "and a block is passed" do
+        subject do
+          some_object.mighty_tap do |_some_object|
+            _some_object.state = "bar"
+          end
+        end
+
+        it { is_expected.to eq(some_object) }
+        its(:state) { is_expected.to eq("bar") }
+      end
+      context "and symbol shorthand is used" do
+        subject do
+          some_object.mighty_tap(&:upcase_state!)
+        end
+
+        it { is_expected.to eq(some_object) }
+        its(:state) { is_expected.to eq("FOO") }
+      end
+
+      context "and protected method is called" do
+        context "and a block is passed" do
+          subject do
+            some_object.mighty_tap do |_some_object|
+              _some_object.downcase_state!
+            end
+          end
+
+          it "raises NoMethodError" do
+            expect { subject }.
+              to raise_error(NoMethodError)
+          end
+        end
+        context "and symbol shorthand is used" do
+          subject do
+            some_object.mighty_tap(&:downcase_state!)
+          end
+
+          it "raises NoMethodError" do
+            expect { subject }.
+              to raise_error(NoMethodError)
+          end
+        end
+      end
+
+      context "and private method is called" do
+        context "and a block is passed" do
+          subject do
+            some_object.mighty_tap do |_some_object|
+              _some_object.reset_state!
+            end
+          end
+
+          it "raises NoMethodError" do
+            expect { subject }.
+              to raise_error(NoMethodError)
+          end
+        end
+        context "and symbol shorthand is used" do
+          subject do
+            some_object.mighty_tap(&:reset_state!)
+          end
+
+          it "raises NoMethodError" do
+            expect { subject }.
+              to raise_error(NoMethodError)
+          end
+        end
+      end
     end
 
     describe "it returns the object it was called on" do
