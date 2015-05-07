@@ -19,6 +19,16 @@ describe Object do
         def upcase_state!
           @state = @state.upcase
         end
+
+        protected
+
+        def some_protected_method
+        end
+
+        private
+
+        def some_private_method
+        end
       end
     end
 
@@ -34,6 +44,20 @@ describe Object do
       context "if a method name is given" do
         it "calls the method on the object" do
           expect(some_class.new("foo").mtap(:upcase_state!).state).to eq("FOO")
+        end
+
+        context "if the method to be called is protected" do
+          if RUBY_ENGINE == "ruby" && RUBY_VERSION >= "2.0.0"
+            it "raises an error" do
+              expect { some_class.new.mtap(:some_protected_method) }.to raise_error(NoMethodError)
+            end
+          end
+        end
+
+        context "if the method to be called is private" do
+          it "raises an error" do
+            expect { some_class.new.mtap(:some_private_method) }.to raise_error(NoMethodError)
+          end
         end
 
         context "if arguments are given" do

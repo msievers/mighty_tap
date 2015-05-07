@@ -1,6 +1,9 @@
 if ENV["CODECLIMATE_REPO_TOKEN"]
-  require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
+  # report coverage only for latest mri ruby
+  if RUBY_ENGINE == "ruby" && RUBY_VERSION >= "2.2.0"
+    require "codeclimate-test-reporter"
+    CodeClimate::TestReporter.start
+  end
 else
   require "simplecov"
   SimpleCov.start
