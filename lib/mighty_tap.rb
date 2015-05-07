@@ -6,7 +6,7 @@ class Object
       method_block_proc = args.pop
     end
 
-    if args[0].is_a?(String) || args[0].is_a?(Symbol)
+    if args[0].is_a?(Symbol) || args[0].is_a?(String)
       public_send(args[0], *args[1..-1], &method_block_proc)
     elsif args[0].respond_to?(:call)
       args[0].call(self, *args[1..-1], &method_block_proc)
