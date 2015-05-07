@@ -1,7 +1,7 @@
 require "mighty_tap/version"
 
 class Object
-  def mighty_tap(*args, &block)
+  def mighty_tap(*args)
     if args.length > 1 && args.last.is_a?(Proc)
       method_block_proc = args.pop
     end

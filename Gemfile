@@ -5,6 +5,7 @@ gemspec
 
 if !ENV["CI"] && RUBY_ENGINE == "ruby"
   group :development do
+    gem "benchmark-ips"
     gem "pry",                "~> 0.9.12.6"
     gem "pry-byebug",         "<= 1.3.2"
     gem "pry-rescue",         "~> 1.4.1"
