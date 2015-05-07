@@ -1,8 +1,9 @@
-require "benchmark/ips"
 require "mighty_tap"
 
 class BenchmarkMightyTap
   def call
+    require "benchmark/ips"
+
     Benchmark.ips do |x|
       x.time = 1
 
