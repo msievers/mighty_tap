@@ -124,6 +124,32 @@ describe Object do
             end
           end
         end
+
+        context "and protected method is called" do
+          subject do
+            some_object.mighty_tap(:downcase_state!)
+          end
+
+          let(:some_object) { some_class.new }
+
+          it "raises NoMethodError" do
+            expect { subject }.
+              to raise_error(NoMethodError)
+          end
+        end
+
+        context "and private method is called" do
+          subject do
+            some_object.mighty_tap(:downcase_state!)
+          end
+
+          let(:some_object) { some_class.new }
+
+          it "raises NoMethodError" do
+            expect { subject }.
+              to raise_error(NoMethodError)
+          end
+        end
       end
 
       context "if a callable is given" do
